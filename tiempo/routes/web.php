@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Support\Facades\Input;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -16,9 +17,10 @@ Route::get('/', function () {
 });
 
 Route::get('/home', 'PagesController@getIndex');
-Route::get('/zip', 'PagesController@getZip');
-Route::get('/nombre', 'PagesController@getNombre');
-Route::get('/id', 'PagesController@getId');
-Route::get('/gps', 'PagesController@getGps');
-Route::get('/buscador', 'PagesController@getSearch');
-Route::get('/buscar', 'PagesController@buscar');
+Route::get('/nombre', function(){
+	if (empty(Input::get('buscar'))) return redirect('home');
+	$data = urlencode(e(Input::get('buscar')));
+	$route = "nombre/$data";
+	return redirect($route);
+});
+Route::get('/nombre/{data}', 'PagesController@getNombre');

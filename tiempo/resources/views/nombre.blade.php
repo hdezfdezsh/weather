@@ -3,11 +3,11 @@
 <body class="body">
     <div class="container">
       <div class="row">
-        <div class="col-sm">
-          Mapa o grafica por aqui
+        <div class="col-8">
+          <img class="img-fluid" src="./../img/mapa.jpeg">
         </div>
-        <div class="col-sm">
-          datos por alla
+        <div class="col-4">
+          {{$output}}
         </div>
       </div>
     </div>
